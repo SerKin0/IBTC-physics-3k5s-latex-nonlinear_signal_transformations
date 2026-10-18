@@ -43,7 +43,7 @@ def draw_graph(file_name: str = "graph", size: tuple = (8, 10)):
     set_settings(ax)
 
     ax.plot(x, y, marker="o", markersize=2, linewidth=1, color="black", zorder=1)
-    ax.set_xlabel(r"$U_\text{вх}, мВ$")
+    ax.set_xlabel(r"$U_\text{вх}$, мВ")
     ax.set_ylabel(r"$U_\text{вых}$, мВ")
 
     plt.savefig(f"{file_name}.pdf", format="pdf")
@@ -53,5 +53,5 @@ def draw_graph(file_name: str = "graph", size: tuple = (8, 10)):
 if __name__ == "__main__":
     x = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0]
     y = [10.0, 33.0, 63.0, 97.0, 130.0, 165.0, 202.0, 238.0, 275.0, 312.0, 349.0, 386.0, 426.0, 465.0, 502.0, 540.0, 579.0, 616.0, 655.0, 693.0]
-    x = [i * 100 for i in x]
+    x = [i * 1000 for i in x]
     draw_graph(file_name=__file__[:-3], size=(8, 5))
