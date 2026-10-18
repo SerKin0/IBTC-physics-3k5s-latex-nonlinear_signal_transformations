@@ -11,7 +11,7 @@
 %* ---------------------------------- ТЕКСТ ---------------------------------- %
 \RequirePackage{cmap}
 \RequirePackage{setspace}
-\RequirePackage{ulem}
+\RequirePackage[normalem]{ulem}
 \RequirePackage{indentfirst}
 \RequirePackage{microtype}
 
@@ -127,32 +127,32 @@
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.8ex \@plus.2ex}
     {\Large\bfseries\centering\MakeUppercase}}
-\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesection}{\Roman{section}}
 
 \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.2ex \@plus .2ex}
     {\large\bfseries}}
-\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.0ex \@plus .2ex}
     {\normalsize\bfseries}}
-\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \makeatother
 
 % --------------------------- Заголовок Приложения --------------------------- %
 \newcounter{appsection}
 \renewcommand{\theappsection}{\arabic{appsection}}
 
-\newcommand{\appendixsection}[1]{
-	\refstepcounter{appsection}
-	\vspace{1em}
-	\noindent{\largeПриложение \theappsection. #1}
+% Метку задавайте отдельно: \appendixsection{Название}\label{app:key}.
+\newcommand{\appendixsection}[1]{%
+	\par\addvspace{1em}
+	\noindent\refstepcounter{appsection}%
+	{\large Приложение \theappsection. #1}
 	\par\nopagebreak
 	\addcontentsline{toc}{subsection}{Приложение \theappsection. #1}  % Добавляем в оглавление
-	\label{app:#1}  % Автоматическая метка (можно заменить на ручные \label)
 }
 
 %* ------------------------------ ПЕРЕЧИСЛЕНИЯ ------------------------------- %
@@ -195,22 +195,22 @@
     labelfont={bf},             % Параметры шрифта метки
     skip=4pt,                   % Расстояние между подписью и изображением
     belowskip=2pt,              % Отступ под подписью
-    position=above,             % Подпись под изображением
+    position=bottom,            % Отступы для подписи, расположенной после изображения
 }
 
 %* ------------------------------- МАТЕМАТИКА -------------------------------- %
 
 % -------------------------- Математические операции ------------------------- %
-\DeclareMathOperator{\re}{\operatorname{Re}}
-\DeclareMathOperator{\im}{\operatorname{Im}}
-\DeclareMathOperator\Div{\operatorname{div}}
-\DeclareMathOperator\Rot{\operatorname{rot}}
-\DeclareMathOperator\Grad{\operatorname{grad}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\Grad}{grad}
 
 % ------------------------------- Буквы/Символы ------------------------------ %
-\DeclareMathOperator{\Epsilon}{\mathcal{E}}
-\DeclareMathOperator{\A}{\mathcal{A}}
-\DeclareMathOperator{\R}{\mathc al{R}}
+\newcommand{\Epsilon}{\mathcal{E}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\R}{\mathcal{R}}
 
 %* --------------------------------- ССЫЛКИ ---------------------------------- %
 
