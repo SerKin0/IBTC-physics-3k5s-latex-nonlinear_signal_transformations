@@ -127,19 +127,19 @@
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.8ex \@plus.2ex}
     {\Large\bfseries\centering\MakeUppercase}}
-\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesection}{\Roman{section}.}
 
 \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.2ex \@plus .2ex}
     {\large\bfseries}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
 
 \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}
     {-2.5ex \@plus -0.8ex \@minus -.2ex}
     {1.0ex \@plus .2ex}
     {\normalsize\bfseries}}
-\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
 \makeatother
 
 % --------------------------- Заголовок Приложения --------------------------- %
